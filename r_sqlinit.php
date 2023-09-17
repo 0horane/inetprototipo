@@ -1,7 +1,14 @@
 <?php 
 require('credentials.php');
+
+//*
+define('db', 'hospitalinet');
+define('db_initial_table', 'pacientes');
+/*/
 define('db', 'cecs');
 define('db_initial_table', 'users');
+//*/
+
 GLOBAL $link;
 $link=mysqli_connect(DB_HOST,DB_USER, DB_PASS, db);
 mysqli_set_charset($link, 'utf8');
@@ -26,7 +33,7 @@ function query ($query, $exitCode=false){
     return $tres;
 }
 
-function rows ($query, $fetchrow = false, $assoc=false, $exitCode=false){
+function getRows ($query, $fetchrow = false, $assoc=false, $exitCode=false){
     $entries=query($query, $exitCode);
     $entryarr=[];
     while($row= $fetchrow ? $entries->fetch_row() : $entries->fetch_assoc()){
