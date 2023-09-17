@@ -124,7 +124,7 @@ function moduser(id){
         formData.set(element.name,element.value);
     });
 
-    fetch("/api.php", { method:"POST", body:formData, credentials: 'same-origin', mode: 'same-origin', cache: 'no-cache', })
+    fetch("api.php", { method:"POST", body:formData, credentials: 'same-origin', mode: 'same-origin', cache: 'no-cache', })
     .then(CheckError)
     .then((jsonResponse) => {
         alert("ok");
@@ -152,7 +152,7 @@ function delrow(id){
     formData.set("delete", 1);
     formData.set("id", id);
     formData.set("table", document.querySelector("select").value);
-    fetch("/api.php", { method:"POST", body:formData, credentials: 'same-origin', mode: 'same-origin', cache: 'no-cache', })
+    fetch("api.php", { method:"POST", body:formData, credentials: 'same-origin', mode: 'same-origin', cache: 'no-cache', })
     .then(CheckError)
     .then((jsonResponse) => {
         alert("ok");
